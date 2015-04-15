@@ -19,7 +19,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -89,6 +91,22 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        final String[] itemname = new String[]{
+                getString(R.string.title_section1),
+                getString(R.string.title_section2),
+                getString(R.string.title_section3),
+        };
+        final Integer[] imgid = new Integer[]{
+                R.drawable.view_fullscreen,
+                R.drawable.color,
+                R.drawable.size
+        };
+        final Integer[] imgidfullscreen = new Integer[]{
+                R.drawable.view_restore,
+                R.drawable.color,
+                R.drawable.size
+        };
+
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -101,14 +119,19 @@ public class NavigationDrawerFragment extends Fragment {
                 getActionBar().getThemedContext(),
                 R.layout.fragment_navigation_drawer_customlist,
                 R.id.itemname,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                }) {
+                itemname) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                return super.getView(position, convertView, parent);
+                View rowView = super.getView(position, convertView, parent);
+
+                ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+                if (getActionBar().isShowing()) {
+                    imageView.setImageResource(imgid[position]);
+                } else {
+                    imageView.setImageResource(imgidfullscreen[position]);
+                }
+
+                return rowView;
             }
         });
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);

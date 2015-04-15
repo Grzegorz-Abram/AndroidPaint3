@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity
@@ -59,19 +60,20 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                // mTitle = getString(R.string.title_section1);
                 ActionBar actionBar = getSupportActionBar();
                 if (actionBar.isShowing()) {
                     actionBar.hide();
+                    Toast.makeText(getApplicationContext(), "FullScreen ON", Toast.LENGTH_SHORT).show();
                 } else {
                     actionBar.show();
+                    Toast.makeText(getApplicationContext(), "FullScreen OFF", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case 2:
-                // mTitle = getString(R.string.title_section2);
+                Toast.makeText(getApplicationContext(), "Choose your color", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
-                // mTitle = getString(R.string.title_section3);
+                Toast.makeText(getApplicationContext(), "Choose your size", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
