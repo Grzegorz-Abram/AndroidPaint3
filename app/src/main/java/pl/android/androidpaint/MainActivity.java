@@ -33,10 +33,14 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    private PaintView paintView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        paintView = (PaintView) findViewById(R.id.PaintView);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -74,6 +78,15 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 Toast.makeText(getApplicationContext(), "Choose your size", Toast.LENGTH_SHORT).show();
+                break;
+            case 4:
+                paintView.undo();
+                break;
+            case 5:
+                paintView.redo();
+                break;
+            case 6:
+                paintView.clear();
                 break;
         }
     }

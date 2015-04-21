@@ -95,16 +95,25 @@ public class NavigationDrawerFragment extends Fragment {
                 getString(R.string.title_section1),
                 getString(R.string.title_section2),
                 getString(R.string.title_section3),
+                getString(R.string.title_section4),
+                getString(R.string.title_section5),
+                getString(R.string.title_section6)
         };
         final Integer[] imgid = new Integer[]{
                 R.drawable.view_fullscreen,
                 R.drawable.color,
-                R.drawable.size
+                R.drawable.size,
+                R.drawable.undo,
+                R.drawable.redo,
+                R.drawable.clear
         };
         final Integer[] imgidfullscreen = new Integer[]{
                 R.drawable.view_restore,
                 R.drawable.color,
-                R.drawable.size
+                R.drawable.size,
+                R.drawable.undo,
+                R.drawable.redo,
+                R.drawable.clear
         };
 
         mDrawerListView = (ListView) inflater.inflate(
