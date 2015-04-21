@@ -94,26 +94,17 @@ public class NavigationDrawerFragment extends Fragment {
         final String[] itemname = new String[]{
                 getString(R.string.title_section1),
                 getString(R.string.title_section2),
-                getString(R.string.title_section3),
-                getString(R.string.title_section4),
-                getString(R.string.title_section5),
-                getString(R.string.title_section6)
+                getString(R.string.title_section3)
         };
         final Integer[] imgid = new Integer[]{
                 R.drawable.view_fullscreen,
                 R.drawable.color,
-                R.drawable.size,
-                R.drawable.undo,
-                R.drawable.redo,
-                R.drawable.clear
+                R.drawable.size
         };
         final Integer[] imgidfullscreen = new Integer[]{
                 R.drawable.view_restore,
                 R.drawable.color,
-                R.drawable.size,
-                R.drawable.undo,
-                R.drawable.redo,
-                R.drawable.clear
+                R.drawable.size
         };
 
         mDrawerListView = (ListView) inflater.inflate(
@@ -284,8 +275,18 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+        if (item.getItemId() == R.id.action_clear) {
+            ((PaintView) getActivity().findViewById(R.id.PaintView)).clear();
+            return true;
+        }
+
+        if (item.getItemId() == R.id.action_undo) {
+            ((PaintView) getActivity().findViewById(R.id.PaintView)).undo();
+            return true;
+        }
+
+        if (item.getItemId() == R.id.action_redo) {
+            ((PaintView) getActivity().findViewById(R.id.PaintView)).redo();
             return true;
         }
 
@@ -298,9 +299,8 @@ public class NavigationDrawerFragment extends Fragment {
      */
     private void showGlobalContextActionBar() {
         ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setTitle(R.string.app_name);
     }
 
     private ActionBar getActionBar() {

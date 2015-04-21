@@ -4,14 +4,13 @@
     <string name="title_section1">Full Screen</string>
     <string name="title_section2">Color</string>
     <string name="title_section3">Size</string>
-    <string name="title_section4">Undo</string>
-    <string name="title_section5">Redo</string>
-    <string name="title_section6">Clear All</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_example">Example action</string>
+    <string name="action_clear">Clear all</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_redo">Redo</string>
 
     <string name="action_settings">Settings</string>
 </resources>

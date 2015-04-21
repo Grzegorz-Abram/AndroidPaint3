@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
-    private CharSequence mTitle;
+    //private CharSequence mTitle;
 
     private PaintView paintView;
 
@@ -44,7 +44,6 @@ public class MainActivity extends ActionBarActivity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -79,23 +78,13 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 Toast.makeText(getApplicationContext(), "Choose your size", Toast.LENGTH_SHORT).show();
                 break;
-            case 4:
-                paintView.undo();
-                break;
-            case 5:
-                paintView.redo();
-                break;
-            case 6:
-                paintView.clear();
-                break;
         }
     }
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
+        actionBar.setDisplayShowTitleEnabled(false);
     }
 
 
